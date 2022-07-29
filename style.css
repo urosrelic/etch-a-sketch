@@ -45,6 +45,7 @@ header {
 /* Drawing grid */
 .pixel {
   background-color: white;
+  border: 1px solid black;
 }
 
 .grid {

@@ -1,0 +1,46 @@
+header {
+  text-align: center;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 500px;
+  align-content: center;
+  justify-content: space-around;
+}
+
+.option {
+  width: 200px;
+  height: 50px;
+}
+
+#color-picker {
+  width: 200px;
+  height: 50px;
+}
+
+#range-slider {
+  width: 200px;
+}
+
+.pixel {
+  background-color: white;
+}
+
+.grid {
+  height: 500px;
+  width: 500px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background-color: red;
+}

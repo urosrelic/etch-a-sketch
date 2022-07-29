@@ -3,15 +3,28 @@ const slider = document.querySelector('#range-slider');
 const sliderSpan = document.querySelector("#slider-value");
 const color = document.querySelector('#color-picker');
 
+let draw = false;
+
+window.addEventListener('mousedown', function () {
+    draw = true;
+})
+
+window.addEventListener('mouseup', function () {
+    draw = false;
+})
+
 function populateGrid(size) {
     grid.style.setProperty('--size', size);
     for(let i = 0; i < size * size; i++) {
         const div = document.createElement('div');
         div.classList.add('pixel');
-
-        div.addEventListener('mousemove', function(){
+        div.addEventListener('mousemove', function () {
+            if(!draw) {
+                return;
+            }
             div.style.backgroundColor = color.value
         })
+
         grid.appendChild(div);
     }
 }

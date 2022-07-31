@@ -1,7 +1,9 @@
+/* Header */
 header {
   text-align: center;
 }
 
+/* Main */
 .main {
   display: flex;
   flex-direction: row;
@@ -9,16 +11,20 @@ header {
   justify-content: center;
 }
 
-.options {
+.modes {
   display: flex;
   flex-direction: column;
   width: 500px;
   height: 500px;
   align-content: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
-.option {
+.modes > * {
+  margin: 0 auto;
+}
+
+.modeBtn {
   width: 200px;
   height: 50px;
 }
@@ -41,11 +47,13 @@ header {
   justify-content: space-around;
 }
 
+.active {
+  background-color: red;
+}
 
 /* Drawing grid */
-.pixel {
+.box {
   background-color: white;
-  border: 1px solid black;
 }
 
 .grid {

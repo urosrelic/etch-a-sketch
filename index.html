@@ -13,13 +13,15 @@
         <h1>Etch-a-sketch</h1>
     </header>
     <div class="main">
-        <div class="options">
+        <div class="modes">
             <label for="color-picker">Choose a color:</label><input type="color" id="color-picker" value="#e66465">
-            <button class="option" id="colorModeBtn">Color mode</button>
-            <button class="option" id="rainbowModeBtn">Rainbow color mode</button>
-            <button class="option" id="eraserModeBtn">Eraser</button>
-            <button class="option" id="clearBtn">Clear</button>
-            <label for="range-slider">Changing the grid size will remove your drawing</label><input type="range" min="1" max="64" value="16" id="range-slider">
+            <label>Change coloring mode</label>
+            <button class="modeBtn" id="colorModeBtn" onclick="changeMode('color')">Color mode</button>
+            <button class="modeBtn" id="rainbowModeBtn" onclick="changeMode('rainbow')"> Rainbow color mode</button>
+            <button class="modeBtn" id="eraserModeBtn" onclick="changeMode('eraser')">Eraser</button>
+            <button class="modeBtn" id="clearBtn">Clear</button>
+            <label for="range-slider">Changing the grid size will remove your drawing</label><input type="range" min="1"
+                max="100" value="16" id="range-slider">
             <span id="slider-value">16x16</span>
         </div>
         <div class="grid">

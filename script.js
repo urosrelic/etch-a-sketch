@@ -1,36 +1,53 @@
 const grid = document.querySelector('.grid');
 const slider = document.querySelector('#range-slider');
 const sliderSpan = document.querySelector("#slider-value");
-const color = document.querySelector('#color-picker');
-const colorModeBtn = document.querySelector("#colorModeBtn");
-const rainbowModeBtn = document.querySelector("#rainbowModeBtn");
-const eraserModeBtn = document.querySelector("#eraserModeBtn");
+const colorPicker = document.querySelector('#color-picker');
 const clearBtn = document.querySelector("#clearBtn");
+const colorBtn = document.querySelector('input[value="Color"]');
 
-let draw = false;
+console.log(colorBtn);
 
-window.addEventListener('mousedown', function () {
-    draw = true;
+let mode = 'color';
+
+let canDraw = false;
+
+grid.addEventListener('mousedown', function () {
+    canDraw = true;
 });
 
-window.addEventListener('mouseup', function () {
-    draw = false;
+grid.addEventListener('mouseup', function () {
+    canDraw = false;
 });
 
 function populateGrid(size) {
     grid.style.setProperty('--size', size);
-    for(let i = 0; i < size * size; i++) {
+    for (let i = 0; i < size * size; i++) {
         const div = document.createElement('div');
-        div.classList.add('pixel');
-        div.addEventListener('mousemove', function () {
-            if(!draw) {
-                return;
-            }
-            div.style.backgroundColor = color.value
-        })
-
+        div.classList.add('box');
+        div.addEventListener('mousemove', updateColor);
         grid.appendChild(div);
     }
+}
+
+function updateColor() {
+    if(!canDraw) {
+        return;
+    } else {
+        if(mode === 'color') {
+            this.style.backgroundColor = colorPicker.value;
+        } else if(mode === 'eraser') {
+            this.style.backgroundColor = 'white';
+        } else {
+            let randomR = Math.random() * 256;
+            let randomG = Math.random() * 256;
+            let randomB = Math.random() * 256;
+            this.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
+        }
+    }
+}
+
+function changeMode(input) {
+    mode = input;
 }
 
 function updateSliderValue() {
@@ -45,5 +62,6 @@ function resetGrid(size) {
 window.onload = () => populateGrid(16);
 
 slider.addEventListener('input', updateSliderValue);
+
 slider.onchange = (e) => resetGrid(e.target.value);
 clearBtn.onclick = () => resetGrid(slider.value);

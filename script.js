@@ -116,6 +116,7 @@ clearBtn.onclick = () => reloadGrid();
 window.onload = () => {
     setSliderValue(defaultSize);
     populateGrid(defaultSize);
+    setToggle(defaultMode);
 }
 
 

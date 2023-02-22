@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+.active {
+    background-color: gray;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -37,7 +41,26 @@ header {
 
 
 .content-left > button {
-    padding: 10px 20px;
+    width: 150px;
+    height: 50px;
+    cursor:pointer;
+}
+
+#color-picker {
+    -webkit-appearance: none;
+    width: 150px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all 300ms;
+}
+
+#color-picker:hover {
+    transform: scale(1.1);
+}
+
+.selected {
+    background-color: gray;
 }
 
 .slider-div {
@@ -53,11 +76,6 @@ header {
     height: 500px;
     display: grid;
 }
-
-.box {
-    border: 1px solid black;
-}
-
 
 footer {
     display: flex;

@@ -19,6 +19,7 @@ let mouseDown = false
 grid.onmousedown = () => (mouseDown = true)
 grid.onmouseup = () => (mouseDown = false)
 
+
 function setNewSize(size) {
     currentSize = size;
 }
@@ -105,6 +106,7 @@ function changeSize(size) {
     reloadGrid();
 }
 
+sliderValue.style.color = "#000";
 colorPicker.onchange = (e) => setNewColor(e.target.value);
 sizeSlider.onmousemove = () => setSliderValue(sizeSlider.value);
 sizeSlider.onchange = (e) => changeSize(e.target.value);
